@@ -1,30 +1,56 @@
-import {Box, TextField, Button } from "@mui/material";
+import { useState } from "react";
+import { Box, TextField, Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 
 export default function TextInputBar() {
+  const [input, setInput] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setError("")
+    setInput(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (input.length < 1) {
+      setError("Write some text before send please");
+    } else {
+      console.log(input);
+      setInput("");
+    }
+  };
+
   return (
-    <AppBar position="static"
-    sx={{
+    <AppBar
+      position="static"
+      sx={{
         backgroundColor: "pink",
-    }}
-    color="transparent" >
- 
-        <Box component="form"
+      }}
+      color="transparent"
+    >
+      <Box
+        component="form"
         display="flex"
         justifyContent="center"
         alignItems="center"
         padding={1}
-        >
-          <TextField
+      >
+        <TextField
           type="text"
           color="info"
           label="Enter text to reverse"
           variant="outlined"
-          sx={{width: "80%", marginRight: "1rem"}}
-          ></TextField>
-          <Button color="info" variant="contained">Send</Button>
-        </Box>
-
+          sx={{ width: "80%", marginRight: "1rem" }}
+          value={input}
+          onChange={handleChange}
+          error={error !== ""}
+          helperText={error}
+        ></TextField>
+        <Button color="info" variant="contained" onClick={handleSubmit}>
+          Send
+        </Button>
+      </Box>
     </AppBar>
   );
 }
