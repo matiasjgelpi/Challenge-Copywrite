@@ -4,7 +4,7 @@
   "description": "an api for a job application challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon ./index.js"
   },
   "author": "Matias Gelpi",

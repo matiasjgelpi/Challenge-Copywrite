@@ -2,6 +2,10 @@ module.exports = {
   // Función para limpiar una cadena de caracteres extraida de "https://retro.relaxate.com/tutorial-javascript-limpiar-cadena-acentos-tildes-extranos/"
 
   getCleanedString (cadena) {
+
+    if(cadena === "") return "empty";
+    if(typeof cadena !== "string") throw new TypeError("No estring argument");
+
     const specialChars = '!@#$^&%*()+=-[]/{}|:<>?,.'
 
     for (let i = 0; i < specialChars.length; i++) {
