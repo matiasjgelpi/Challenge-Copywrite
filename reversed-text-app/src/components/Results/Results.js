@@ -27,7 +27,7 @@ export default function Results() {
         <Box>
             <Typography variant="h3" component="p" margin="1rem">Results:</Typography>
         </Box>
-          {/* {results.map((result, index) => {
+          {results.map((result, index) => {
             return (
               <Card
                 key={index}
@@ -35,16 +35,25 @@ export default function Results() {
                   border: "1px solid grey",
                   margin: "4px",
                   textAlign: "center",
+                 
                 }}
               >
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    {result}
+                <CardContent 
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+                >
+                  <Typography variant="body1" component="span">
+                    Texto revertido: <Typography variant="h6" component="span">{result.text}</Typography>
+                  </Typography>
+                  <Typography variant="h5" component="span">
+                    {result.palindrome ? "Si" : "No"} es Palindromo
                   </Typography>
                 </CardContent>
               </Card>
             );
-          })} */}
+          })}
       </Box>
 }
     </>
