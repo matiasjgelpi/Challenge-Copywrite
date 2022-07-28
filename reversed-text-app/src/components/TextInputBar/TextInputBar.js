@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useDispatch} from "react-redux";
+import axios from "axios";
 import { reverseText } from "../../redux/actions/index";
 import { Box, TextField, Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -15,12 +16,13 @@ export default function TextInputBar() {
     setInput(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (input.length < 1) {
       setError("Write some text before send please");
     } else {
-      dispatch(reverseText(input));
+      const response = await axios(`http://localhost:4000/iecho?text=${input}`);
+      dispatch(reverseText(response.data));
       setInput("");
     }
   };

@@ -1,11 +1,15 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
+
 const {
   reverseText,
   noEndpointReached
 } = require('./controllers/controllers')
 
+app.use(cors())
 app.use(express.json())
+
 
 app.get('/iecho', reverseText)
 
