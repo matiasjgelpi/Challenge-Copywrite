@@ -25,6 +25,12 @@ export default function TextInputBar() {
     }
   };
 
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit(e);
+    }
+  }
+
   return (
     <AppBar
       position="static"
@@ -49,6 +55,7 @@ export default function TextInputBar() {
           sx={{ width: "80%", marginRight: "1rem" }}
           value={input}
           onChange={handleChange}
+          onKeyDown={handleEnter}
           error={error !== ""}
           helperText={error}
         ></TextField>
