@@ -43,6 +43,7 @@ export default function TextInputBar() {
         <TextField
           type="text"
           color="info"
+          id="enter-text"
           label="Enter text to reverse"
           variant="outlined"
           sx={{ width: "80%", marginRight: "1rem" }}
