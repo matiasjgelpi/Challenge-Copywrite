@@ -1,10 +1,14 @@
 import { useState } from "react";
+import {useDispatch} from "react-redux";
+import { reverseText } from "../../redux/actions/index";
 import { Box, TextField, Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 
 export default function TextInputBar() {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setError("")
@@ -16,7 +20,7 @@ export default function TextInputBar() {
     if (input.length < 1) {
       setError("Write some text before send please");
     } else {
-      console.log(input);
+      dispatch(reverseText(input));
       setInput("");
     }
   };

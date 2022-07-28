@@ -1,6 +1,17 @@
 import { Box } from "@mui/system";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export default function Results() {
+
+  const results = useSelector((state) => state.textReversed);
+
+  
+  console.log(results);
+  // useEffect(() => {
+    
+  // },[Results]);
+
   return (
     <Box
       margin={2}
@@ -14,7 +25,11 @@ export default function Results() {
         boxShadow: "10px 10px 10px grey",
       }}
     >
-      Results
+      {
+        results.length > 0 && results.map((result) => {
+          return <p>{result}</p>
+        })
+      }
     </Box>
   );
 }
