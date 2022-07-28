@@ -3,9 +3,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 export default function Results() {
-  const results = useSelector((state) => state.textReversed);
-
-  console.log(results);
+  const results = useSelector((state) => state.reversedTexts.listOfReverseText);
 
   return (
     <>
